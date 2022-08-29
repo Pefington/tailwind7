@@ -37,7 +37,13 @@ gem "redis", "~> 4.0"
 # gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.7"
+
+# Authentication tool.
+gem 'devise'
+
+# Payment tool.
+gem 'stripe'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
@@ -66,8 +72,34 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 
+    # ################################################################################
+  # prairify tools below:
+
   # Live-reload browser on changes [https://github.com/railsjazz/rails_live_reload]
   gem "rails_live_reload"
+
+  # Code linter and formatter.
+  # VSCode: shift+alt+f => removes the wavy blue lines and formats your code.
+  gem 'rubocop', require: false
+  gem 'rubocop-faker'
+  gem 'rubocop-rails', require: false
+
+  # You know this one.
+  gem 'better_errors'
+  gem 'binding_of_caller'
+
+  # This checks the DB for consistency!
+  # It's a good idea to run this after changing the DB schema.
+  gem 'database_consistency', require: false
+
+  # This is our ERB formatter.
+  gem 'htmlbeautifier'
+
+  # Makes checking the db easier.
+  gem 'table_print'
+
+  # ################################################################################
+
 end
 
 group :test do
